@@ -1,0 +1,13 @@
+[slide1.xml] AI-Powered Smart Hospital Management System Final Year Project Full Stack Application using Frontend, Backend, and MongoDB
+[slide2.xml] Project Overview • AI-based hospital management platform • Role-based login for Admin, Doctor, Patient • Real-time dashboard analytics • Laboratory and patient management • Secure authentication with JWT
+[slide3.xml] Problem Statement Manual hospital processes lead to: • Data errors • Slow patient handling • Poor record management • Lack of centralized system
+[slide4.xml] Objectives • Automate hospital workflows • Maintain digital patient records • Provide AI-generated discharge summaries • Enable secure role-based access • Improve operational efficiency
+[slide5.xml] System Architecture
+[slide6.xml] System Architecture      Work flow:       Frontend ? User Interface Backend ? REST APIs &amp; Business Logic Database ? MongoDB for storage User ? Frontend ? Backend ? MongoDB
+[slide7.xml] Frontend Technologies • HTML5 • CSS3 (Glass UI) • Bootstrap • JavaScript (Fetch API) Features: • Premium dashboard • Dynamic tables • Responsive design
+[slide8.xml] Backend Technologies • Node.js • Express.js • JWT Authentication • RESTful APIs Modules: • Login • Patients CRUD • Laboratory • Users
+[slide9.xml] Database – MongoDB Collections: • Users • Patients • Labs Advantages: • NoSQL flexibility • High performance • Scalable architecture
+[slide10.xml] Key Features • Secure login system • Role-based dashboards • Patient management • Lab report tracking • AI discharge generator • Admin control panel
+[slide11.xml] AI Integration Rule-based AI generates discharge summaries. System is designed for future integration with Large Language Models (LLMs) for clinical insights.
+[slide12.xml] Future Enhancements • Real AI model integration • Appointment booking • Payment gateway • Cloud deployment • Mobile application
+[slide13.xml] Conclusion The system demonstrates a complete full-stack hospital management solution with modern UI, secure backend, and scalable database architecture.
