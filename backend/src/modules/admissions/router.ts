@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { Prisma } from "@prisma/client";
 import { prisma } from "../../common/prisma.js";
 import { requireAuth, requireRole } from "../../common/auth.js";
 import { parsePagination } from "../../common/pagination.js";
@@ -12,14 +13,14 @@ admissionsRouter.get("/", requireAuth, requireRole(["ADMIN", "DOCTOR", "NURSE"])
   const where = q
     ? {
         OR: [
-          { diagnosis: { contains: q, mode: "insensitive" } },
-          { attendingPhysician: { contains: q, mode: "insensitive" } },
+          { diagnosis: { contains: q, mode: Prisma.QueryMode.insensitive } },
+          { attendingPhysician: { contains: q, mode: Prisma.QueryMode.insensitive } },
           {
             patient: {
               OR: [
-                { mrn: { contains: q, mode: "insensitive" } },
-                { firstName: { contains: q, mode: "insensitive" } },
-                { lastName: { contains: q, mode: "insensitive" } }
+                { mrn: { contains: q, mode: Prisma.QueryMode.insensitive } },
+                { firstName: { contains: q, mode: Prisma.QueryMode.insensitive } },
+                { lastName: { contains: q, mode: Prisma.QueryMode.insensitive } }
               ]
             }
           }

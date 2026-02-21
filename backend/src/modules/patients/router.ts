@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { Prisma } from "@prisma/client";
 import { prisma } from "../../common/prisma.js";
 import { createPatientSchema, updatePatientSchema } from "./schema.js";
 import { requireAuth, requireRole } from "../../common/auth.js";
@@ -13,9 +14,9 @@ patientsRouter.get("/", async (req, res) => {
   const where = q
     ? {
         OR: [
-          { mrn: { contains: q, mode: "insensitive" } },
-          { firstName: { contains: q, mode: "insensitive" } },
-          { lastName: { contains: q, mode: "insensitive" } }
+          { mrn: { contains: q, mode: Prisma.QueryMode.insensitive } },
+          { firstName: { contains: q, mode: Prisma.QueryMode.insensitive } },
+          { lastName: { contains: q, mode: Prisma.QueryMode.insensitive } }
         ]
       }
     : undefined;
