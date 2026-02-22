@@ -13,8 +13,29 @@ import { prisma } from "./common/prisma.js";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+const corsOrigins = (process.env.CORS_ORIGIN || "")
+  .split(",")
+  .map((v) => v.trim())
+  .filter(Boolean);
+app.use(
+  cors(
+    corsOrigins.length
+      ? { origin: corsOrigins }
+      : { origin: true }
+  )
+);
 app.use(express.json());
+
+app.get("/", (_req, res) => {
+  res.status(200).send("AI Hospital Backend is running. Use /api/health for status.");
+});
+
+app.get("/api", (_req, res) => {
+  res.status(200).json({
+    status: "ok",
+    message: "API root. Use /api/health or POST /api/auth/login|register."
+  });
+});
 
 app.get("/api/health", (_req, res) => {
   res.json({ status: "ok" });

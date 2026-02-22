@@ -10,6 +10,10 @@ import {
 
 export const authRouter = Router();
 
+authRouter.get("/register", (_req, res) => {
+  res.status(405).json({ error: "Use POST /api/auth/register" });
+});
+
 authRouter.post("/register", async (req, res) => {
   const parsed = registerSchema.safeParse(req.body);
   if (!parsed.success) {
@@ -34,6 +38,10 @@ authRouter.post("/register", async (req, res) => {
 
   const token = signToken({ id: user.id, email: user.email, role: user.role });
   res.status(201).json({ token, user });
+});
+
+authRouter.get("/login", (_req, res) => {
+  res.status(405).json({ error: "Use POST /api/auth/login" });
 });
 
 authRouter.post("/login", async (req, res) => {
